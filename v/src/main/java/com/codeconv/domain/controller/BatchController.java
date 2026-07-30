@@ -1,10 +1,11 @@
 package com.codeconv.domain.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import com.codeconv.domain.dto.BatchResponse;
 import com.codeconv.domain.service.BatchService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/batch")

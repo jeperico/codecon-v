@@ -1,13 +1,13 @@
 package com.codeconv.domain.service;
 
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 import com.codeconv.domain.dto.CreateReservationRequest;
 import com.codeconv.domain.dto.ReservationResponse;
 import com.codeconv.domain.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

@@ -1,13 +1,15 @@
 package com.codeconv.domain.controller;
 
-import com.codeconv.domain.dto.CreateReservationRequest;
-import com.codeconv.domain.dto.ReservationResponse;
-import com.codeconv.domain.service.ReservationService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.codeconv.domain.dto.CreateReservationRequest;
+import com.codeconv.domain.dto.ReservationResponse;
+import com.codeconv.domain.service.ReservationService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/reservations")
@@ -18,7 +20,6 @@ public class ReservationController {
 
     @PostMapping()
     public ResponseEntity<ReservationResponse> postReservation(@Valid @RequestBody CreateReservationRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(reservationService.createReservation(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(reservationService.createReservation(request));
     }
 }

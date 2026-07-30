@@ -1,9 +1,10 @@
 package com.codeconv.domain.entity;
 
-import com.codeconv.common.model.BaseModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
+import com.codeconv.common.model.BaseModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
