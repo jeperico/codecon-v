@@ -1,8 +1,6 @@
 package com.codeconv.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import com.codeconv.common.model.BaseModel;
 import lombok.AllArgsConstructor;
@@ -28,4 +26,8 @@ public class Reservation extends BaseModel {
 
     @Column(nullable = false)
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "batch_id")
+    private Batch batch;
 }
