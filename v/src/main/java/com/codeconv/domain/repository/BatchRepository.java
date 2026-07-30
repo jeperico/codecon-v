@@ -6,4 +6,4 @@ import java.util.UUID;
 
 import com.codeconv.domain.entity.Batch;
 
-public interface BatchRepository extends JpaRepository<UUID, Batch> {}
+public interface BatchRepository extends JpaRepository<Batch, UUID> {}
