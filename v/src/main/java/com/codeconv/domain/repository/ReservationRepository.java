@@ -8,5 +8,5 @@ import java.util.UUID;
 import com.codeconv.domain.entity.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, UUID> {
-    List<Reservation> findByBatchId(UUID id);
+    List<Reservation> findByBatchIdAndIsActiveTrue(UUID id);
 }

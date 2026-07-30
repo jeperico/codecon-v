@@ -26,7 +26,7 @@ public class BatchService {
 
     public BatchResponse viewBatch() {
         Batch batch = getBatch(UUID.fromString("11111111-1111-1111-1111-111111111111"));
-        List<Reservation> reservations = reservationRepository.findByBatchId(batch.getId());
+        List<Reservation> reservations = reservationRepository.findByBatchIdAndIsActiveTrue(batch.getId());
 
         int total = batch.getTotal();
         int sold = reservations.size();
@@ -42,15 +42,16 @@ public class BatchService {
     public BatchResponse resetBatch() {
         Batch batch = getBatch(UUID.fromString("11111111-1111-1111-1111-111111111111"));
 
-        batch.setTotal(100);
+        List<Reservation> reservations = reservationRepository.findByBatchIdAndIsActiveTrue(batch.getId());
 
-        List<Reservation> reservations = reservationRepository.findByBatchId(batch.getId());
+        reservations.forEach(reservation -> reservation.setIsActive(false));
+        reservationRepository.saveAll(reservations);
 
         int total = batch.getTotal();
-        int sold = reservations.size();
+        int sold = reservationRepository
+                .findByBatchIdAndIsActiveTrue(batch.getId())
+                .size();
         int available = total - sold;
-
-        batchRepository.save(batch);
 
         return BatchResponse.builder()
                 .total(total)
