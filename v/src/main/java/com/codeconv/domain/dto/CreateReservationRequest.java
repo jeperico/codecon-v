@@ -1,6 +1,7 @@
 package com.codeconv.domain.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +13,6 @@ public class CreateReservationRequest {
     @NotBlank
     private String cpf;
 
-    @NotBlank
+    @NotNull
     private Integer quantity;
 }
